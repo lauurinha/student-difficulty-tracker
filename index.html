@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner📘</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Smart Study Planner</h1>
+    </header>
+    <hr>
+    <div class="subman">
+        <h2>Create a Subject</h2>
+        <label for="name">Subject Name:</label><br>
+        <input type="text" id="name" class="name"><br>
+        <label for="difficulty">Difficulty (1-5):</label><br>
+        <select class="dif" id='dif' name="difficulty" style="margin-left: 0;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button onclick="Submit()" class="btn">Submit</button>
+    </div>
+    <hr>
+    <div class="list" id="listSub">
+        <h2>Subjects:</h2>
+    </div>
+    <hr>
+    <div class="list">
+        <h2>Generate Study Plan</h2>
+        <label for="bgn">Start: </label>
+        <input type="time" name="bgn" id="bgn" class="time-inp">
+        <label for="end">End: </label>
+        <input type="time" name="end" id="end" class="time-inp">
+        <div class="plan" id="plan"></div>
+    </div>
+    <button class="btn" onclick="generatePlan()">Generate Plan</button>
+</body>
+</html>

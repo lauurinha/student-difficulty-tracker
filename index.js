@@ -50,9 +50,12 @@ function generatePlan(){
     const [endHours, endMinutes] = end.split(':').map(Number);
 
     // 3. Normalização para Minutos
-    const totalStart = ((startHours * 60) + startMinutes)/60
-    const totalEnd = ((endHours * 60) + endMinutes)/60
+    let totalStart = ((startHours * 60) + startMinutes)/60
+    let totalEnd = ((endHours * 60) + endMinutes)/60
 
+    if (totalStart>totalEnd){
+        totalEnd += 24
+    }
 
     time = totalEnd-totalStart
     Subject.all_instances.forEach(element => {
@@ -88,12 +91,12 @@ function generatePlan(){
             endStampH -= 24
         } else if (endStampM>=60){
             endStampM -= 60
-        }
+        } 
         
         
         item.innerHTML = `
         <span><strong>${element.name}</strong></span>
-        <span>${startStampH}:${startStampM}-${endStampH}:${endStampM}</span>
+        <span>${String(startStampH).padStart(2, '0')}:${String(startStampM).padStart(2, '0')}-${String(endStampH).padStart(2, '0')}:${String(endStampM).padStart(2, '0')}</span>
         `
         list.appendChild(item)
 
